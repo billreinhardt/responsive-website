@@ -1,20 +1,150 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* set lowest to hightest priority of layers -- without this, it would go in the same order anyway*/
+@layer global, component, utility;
+
+@layer global {
+
+  /* source-sans-3-regular - latin */
+  @font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/source-sans-3-v19-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* source-sans-3-700 - latin */
+  @font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/source-sans-3-v19-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* Fonts */
+  :root {
+    --fs-14: calc(14 / 16 * 1rem);
+    --fs-16: calc(16 / 16 * 1rem);
+    --fs-24: calc(24 / 16 * 1rem);
+    --fs-36: calc(36 / 16 * 1rem);
+    --fs-42: calc(42 / 16 * 1rem);
+    --fs-48: calc(48 / 16 * 1rem);
+    --fs-72: calc(72 / 16 * 1rem);
+
+    --font-size-topnav: var(--fs-14);
+    --font-size-h1: var(--fs-42);
+    --font-size-h2: var(--fs-36);
+    --font-size-h3: var(--fs-24);
+
+    @media (width >=calc(600 / 16 * 1rem)) {
+      --font-size-topnav: var(--fs-16);
+      --font-size-h1: var(--fs-72);
+      --font-size-h2: var(--fs-48);
+    }
+
+  }
+
+  /* Colors */
+  :root {
+    --c-white: oklch(100% 0 0);
+    --c-gray-dark: oklch(35.318% 0.02792 279.281);
+    --c-purple: oklch(52.01% 0.17932 271.992);
+    --c-teal: oklch(78.522% 0.13393 195.417);
+    --c-magenta: oklab(53.771% 0.21426 -0.04774);
+    --c-transparent: transparent;
+
+    --m-content-margin: 24;
+    --w-content-width: 1200;
+    --wrapper-layout: min(calc(100% - (2 * var(--m-content-margin) * 1px)),
+        calc(var(--w-content-width) / 16 * 1rem));
+
+    --color-main-bg: var(--c-white);
+    --color-text-dark: var(--c-gray-dark);
+    --color-text-light: var(--c-white);
+    --color-hero-bg: var(--c-purple);
+    --color-button-primary-bg: var(--c-teal);
+    --color-button-primary-text: var(--c-gray-dark);
+    --color-button-secondary-bg: var(--c-transparent);
+    --color-button-secondary-border: var(--c-white);
+    --color-button-secondary-text: var(--c-white);
+    --color-fullwidth-bg: var(--c-magenta);
+
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Source Sans 3', Arial, Helvetica, sans-serif;
+    line-height: 1.3;
+    color: var(--color-text-dark);
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.1;
+  }
+
+  h1 {
+    font-size: var(--font-size-h1);
+  }
+
+  h2 {
+    font-size: var(--font-size-h2);
+  }
+
+  h3 {
+    font-size: var(--font-size-h3);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img,
+  picture,
+  svg {
+    max-width: 100%;
+    display: block;
+  }
+
+  .wrapper {
+    /* margins don't change with browser font size (unit = pixels), but width does change with browser font size (unit = rems) */
+    width: var(--wrapper-layout);
+    margin-inline: auto;
+  }
 }
 
-* {
-  margin: 0;
+/* end of global layer */
+
+@layer component {
+  /* test */
 }
 
-a {
-  text-decoration: none;
+/* end of component layer */
+
+
+@layer utility {
+  .visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
 }
 
-img,
-picture,
-svg {
-  max-width: 100%;
-  display: block;
-}
+/* end of utility layer */
