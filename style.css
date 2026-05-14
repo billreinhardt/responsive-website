@@ -161,6 +161,8 @@
     }
 
     .topnav__homelink {
+      min-width: 40px;
+
       &:hover {
         opacity: 0.9;
       }
