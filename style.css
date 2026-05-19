@@ -183,6 +183,11 @@
     /* margins don't change with browser font size (unit = pixels), but width does change with browser font size (unit = rems) */
     width: var(--wrapper-layout);
     margin-inline: auto;
+    padding-block: 60px;
+
+    @media (width >=calc(1000 / 16 * 1rem)) {
+      padding-block: 80px;
+    }
   }
 }
 
@@ -327,6 +332,51 @@
     .hero__buttons {
       display: flex;
       gap: 20px;
+    }
+  }
+
+  .features {
+    background-color: var(--c-white);
+
+    .features__wrapper {
+      display: grid;
+      gap: 40px;
+      justify-items: center;
+
+      @media (width >=calc(1000 / 16 * 1rem)) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .features__item {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      align-content: start;
+
+      @media (width >=calc(1000 / 16 * 1rem)) {
+        justify-items: left;
+      }
+    }
+
+    .features__icon {
+      width: auto;
+      height: calc(48 / 16 * 1rem);
+    }
+
+    .features__title {
+      line-height: 1;
+    }
+
+    .features__description {
+      text-align: center;
+      text-wrap: balance;
+
+      max-width: 40ch;
+
+      @media (width >=calc(1000 / 16 * 1rem)) {
+        text-align: left;
+      }
     }
   }
 }
