@@ -352,6 +352,7 @@
       display: grid;
       gap: 10px;
       justify-items: center;
+      /* grid-auto-rows: min-content; */
       align-content: start;
 
       @media (width >=calc(1000 / 16 * 1rem)) {
