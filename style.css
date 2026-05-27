@@ -528,6 +528,16 @@
 
     .testimonial__biotitle {} */
   }
+
+  .fw-cta {
+    .fw-cta__wrapper {}
+
+    .fw-cta__title {}
+
+    .fw-cta__description {}
+
+    .fw-cta__button {}
+  }
 }
 
 /* end of component layer */
