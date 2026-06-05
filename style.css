@@ -74,6 +74,7 @@
     --c-teal: oklch(78.522% 0.13393 195.417);
     --c-teal-dark: oklch(73.139% 0.12487 194.807);
     --c-magenta: oklab(53.771% 0.21426 -0.04774);
+    --c-yellow: oklch(88.6% 0.18027 95.537);
     --c-transparent: transparent;
 
     --m-content-margin: 24;
@@ -85,6 +86,8 @@
     --color-text-dark: var(--c-gray-dark);
     --color-text-light: var(--c-white);
     --color-header-bg: var(--c-purple);
+    --color-topnav-gradient-1: var(--c-teal);
+    --color-topnav-gradient-2: var(--c-yellow);
     --color-hero-bg: var(--c-purple);
     --color-button-primary-bg: var(--c-teal);
     --color-button-primary-bg-hover: var(--c-white);
@@ -320,9 +323,23 @@
       font-size: var(--font-size-topnav);
       color: var(--color-text-light);
 
+      &::after {
+        content: "";
+        /* width: 100%; */
+        /* border-bottom: 3px solid red; */
+        display: block;
+        height: 3px;
+        background: linear-gradient(to right,
+            var(--color-topnav-gradient-1),
+            var(--color-topnav-gradient-2) 82%);
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+      }
+
       &:hover {
-        text-decoration: underline 2px;
-        text-underline-offset: 4px;
+        &::after {
+          opacity: 1;
+        }
       }
     }
   }
