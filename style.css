@@ -81,6 +81,7 @@
     --c-teal-dark: oklch(73.139% 0.12487 194.807);
     --c-magenta: oklab(53.771% 0.21426 -0.04774);
     --c-yellow: oklch(88.6% 0.18027 95.537);
+    --c-blue: oklch(37.08% 0.21673 271.828);
     --c-transparent: transparent;
     --c-transparent-white: oklch(100% 0 0 / 0.5);
 
@@ -114,6 +115,8 @@
     --color-button-secondary-border: var(--c-white);
     --color-button-secondary-text: var(--c-white);
     --color-button-secondary-text-hover: var(--color-hero-bg);
+    --color-blog-gradient-1: var(--c-blue);
+    --color-blog-gradient-2: var(--c-magenta);
     --color-fullwidth-bg: var(--c-magenta);
     --color-cta-gradient-1: var(--c-gray-dark);
     --color-cta-gradient-2: var(--c-purple);
