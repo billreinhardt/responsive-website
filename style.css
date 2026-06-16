@@ -74,6 +74,7 @@
   /* Colors */
   :root {
     --c-white: oklch(100% 0 0);
+    --c-white-90: oklch(100% 0 0 / .9);
     --c-black: oklch(0% 0 0);
     --c-gray-dark: oklch(35.318% 0.02792 279.281);
     --c-gray-dark-40: oklch(35.318% 0.02792 279.281 / .4);
@@ -119,6 +120,7 @@
     --color-blog-gradient-1: var(--c-blue);
     --color-blog-gradient-2: var(--c-magenta);
     --color-blog-shadow: var(--c-gray-dark-40);
+    --color-blog-text-bg: var(--c-white-90);
     --color-fullwidth-bg: var(--c-magenta);
     --color-cta-gradient-1: var(--c-gray-dark);
     --color-cta-gradient-2: var(--c-purple);
@@ -773,7 +775,7 @@
     }
 
     .blog__text {
-      background-color: var(--color-main-bg);
+      background-color: var(--color-blog-text-bg);
       margin: 10px;
       padding: 16px;
       border-radius: 8px;
