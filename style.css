@@ -52,6 +52,7 @@
     --font-size-quote-author: var(--fs-20);
     --font-size-footer-title: var(--fs-22);
     --font-size-footer-link: var(--fs-18);
+    --font-size-form: var(--fs-18);
 
     /* --font-size-hero-title: var(--fs-42); */
     /* --font-size-hero-content: var(--fs-24); */
@@ -243,6 +244,14 @@
     padding: 0;
   }
 
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    border: none;
+  }
+
   .wrapper {
     /* margins don't change with browser font size (unit = pixels), but width does change with browser font size (unit = rems) */
     width: var(--wrapper-layout);
@@ -321,7 +330,6 @@
         background-color: var(--color-button-secondary-bg-hover);
       }
     }
-
   }
 
   .topnav {
@@ -837,6 +845,39 @@
     .fw-cta__description {}
 
     .fw-cta__button {}
+
+    .fw-cta__form {
+      display: flex;
+      /* flex-direction: column; */
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .fw-cta__form-label,
+    .fw-cta__form-textinput {
+      font-size: var(--font-size-form);
+      line-height: 1;
+    }
+
+    .fw-cta__form-label {
+      flex: 100%;
+      font-weight: 700;
+      display: inline-block;
+      text-align: left;
+    }
+
+    .fw-cta__form-textinput {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 5px;
+      flex: 3;
+      /* height: 0 !important;
+      min-height: 18px; */
+    }
+
+    .fw-cta__form-button {
+      flex: 1;
+    }
   }
 
   .footer {
