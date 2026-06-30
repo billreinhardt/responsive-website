@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mythos</title>
   <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/gh/rick-liruixin/body-scroll-lock-upgrade@v1.1.0/lib/index.umd.js"></script>
   <script src="/script.js" defer></script>
 </head>
 
@@ -19,11 +20,14 @@
       </a>
 
       <nav>
-        <button class="topnav__open">
+        <span id="nav-label" hidden>Navigation</span>
+        <span id="close-label" hidden>Close Navigation</span>
+        <div class="topnav__overlay"></div>
+        <button id="btnOpen" class="topnav__open" aria-expanded="false" aria-labelledby="nav-label">
           <img src="/img/hamburger.svg" alt="" width="30" height="23" class="topnav__open-image">
         </button>
-        <div class="topnav__menu">
-          <button class="topnav__close">
+        <div id="menuTopNav" class="topnav__menu" role="dialog" aria-labelledby="nav-label">
+          <button id="btnClose" class="topnav__close" aria-labelledby="close-label">
             <img src="/img/close-button.svg" alt="" width="25" height="26" class="topnav__close-image">
           </button>
           <ul class="topnav__links">
@@ -278,7 +282,7 @@
   </main>
 
 
-  <footer class="footer">
+  <footer id="footer" class="footer">
     <h2 class="visually-hidden">Footer</h2>
 
     <div class="wrapper footer__wrapper">

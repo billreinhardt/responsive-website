@@ -102,6 +102,7 @@
     --color-header-bg: var(--c-purple);
     --color-topnav-menu-bg: var(--c-purple);
     --color-topnav-menu-shadow: var(--c-purple-dark-60);
+    --color-topnav-menu-overlay: var(--c-gray-dark-40);
     --color-topnav-gradient-1: var(--c-teal);
     --color-topnav-gradient-2: var(--c-yellow);
     --color-hero-bg: var(--c-purple);
@@ -339,7 +340,10 @@
   }
 
   .topnav {
+    position: sticky;
+    top: 0;
     background-color: var(--color-header-bg);
+    z-index: 10;
 
     .topnav__wrapper {
       display: flex;
@@ -361,18 +365,46 @@
       }
     }
 
+    .topnav__overlay {
+      opacity: 0;
+
+      @media (width < calc(600 / 16 * 1rem)) {
+        position: fixed;
+        inset: 0;
+        background-color: var(--color-topnav-menu-overlay);
+        pointer-events: none;
+        transition: opacity 250ms ease-in-out;
+
+        &:has(+ .topnav__open[aria-expanded="true"]) {
+          opacity: 1;
+          pointer-events: all;
+        }
+      }
+    }
+
     .topnav__open,
     .topnav__close {
       display: none;
 
       @media (width < calc(600 / 16 * 1rem)) {
         display: block;
+        cursor: pointer;
       }
     }
 
-    .tapnav__open {}
+    .topnav__open {
+      &[aria-expanded="true"] {
+        +.topnav__menu {
+          translate: 0 0;
 
-    .tapnav__open-image {}
+          @media(prefers-reduced-motion) {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .topnav__open-image {}
 
     .topnav__menu {
       @media (width < calc(600 / 16 * 1rem)) {
@@ -383,6 +415,19 @@
         border-radius: 0 0 20px 20px;
         box-shadow: 0 12px 12px var(--color-topnav-menu-shadow);
         translate: 0 -110%;
+
+        &.animating {
+          transition: translate 250ms ease-in-out;
+
+          @media(prefers-reduced-motion) {
+            transition-property: opacity;
+          }
+        }
+
+        @media(prefers-reduced-motion) {
+          translate: 0;
+          opacity: 0;
+        }
       }
     }
 
@@ -1025,6 +1070,7 @@
       background-color: var(--c-white);
       padding: 10px;
       border: 1px solid;
+      z-index: 20;
     }
   }
 
