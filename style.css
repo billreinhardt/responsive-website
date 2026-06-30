@@ -83,7 +83,10 @@
     --c-purple: oklch(52.01% 0.17932 271.992);
     --c-purple-dark-60: oklch(37.105% 0.14903 270.463 / .60);
     --c-teal: oklch(78.522% 0.13393 195.417);
-    --c-teal-dark: oklch(73.139% 0.12487 194.807);
+    /* --c-teal-dark: oklch(73.139% 0.12487 194.807); */
+    --c-teal-dark: oklch(from var(--c-teal) calc(l - 0.1) c h);
+    --c-teal-light: oklch(from var(--c-teal) calc(l + 0.1) c h);
+    ;
     --c-magenta: oklab(53.771% 0.21426 -0.04774);
     --c-yellow: oklch(88.6% 0.18027 95.537);
     --c-blue: oklch(37.08% 0.21673 271.828);
@@ -107,15 +110,16 @@
     --color-topnav-gradient-2: var(--c-yellow);
     --color-hero-bg: var(--c-purple);
     --color-button-primary-bg: var(--c-teal);
-    --color-button-primary-bg-hover: var(--c-white);
+    /* --color-button-primary-bg-hover: var(--c-white); */
+    --color-button-primary-bg-hover: var(--c-teal-light);
     --color-button-primary-text: var(--c-gray-dark);
     --color-button-primary-text-hover: var(--c-black);
     --color-button-primary-border: var(--c-transparent);
 
     --color-button-primary-white-bg: var(--c-white);
-    --color-button-primary-white-bg-hover: var(--c-teal);
+    --color-button-primary-white-bg-hover: var(--c-teal-dark);
     --color-button-primary-white-text: var(--c-gray-dark);
-    --color-button-primary-white-text-hover: var(--c-gray-dark);
+    --color-button-primary-white-text-hover: var(--c-white);
     --color-button-primary-white-border: var(--c-transparent);
 
     --color-button-secondary-bg: var(--c-transparent);
@@ -302,6 +306,7 @@
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    cursor: pointer;
     transition: 0.2s ease-in-out;
     transition-property: color, background-color, border-color;
 
