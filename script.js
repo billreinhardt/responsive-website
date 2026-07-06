@@ -3,12 +3,14 @@ const footer = document.querySelector("#footer");
 const btnOpen = document.querySelector("#btnOpen");
 const btnClose = document.querySelector("#btnClose");
 const menuTopNav = document.querySelector("#menuTopNav");
+const navOverlay = document.querySelector("#navOverlay");
 const breakpoint = window.matchMedia("(width < calc(600 / 16 * 1rem))")
 
 setupTopNav();
 
 btnOpen.addEventListener("click", () => mobileMenu(true));
 btnClose.addEventListener("click", () => mobileMenu(false));
+navOverlay.addEventListener("click", () => mobileMenu(false));
 breakpoint.addEventListener("change", () => {
   console.log("breakpoint crossed");
   setupTopNav();
