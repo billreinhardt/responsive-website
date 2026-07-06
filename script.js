@@ -12,12 +12,12 @@ btnOpen.addEventListener("click", () => mobileMenu(true));
 btnClose.addEventListener("click", () => mobileMenu(false));
 navOverlay.addEventListener("click", () => mobileMenu(false));
 breakpoint.addEventListener("change", () => {
-  console.log("breakpoint crossed");
+  // console.log("breakpoint crossed");
   setupTopNav();
 });
 
 function mobileMenu(value) {
-  console.log(value ? "openMobileMenu" : "closeMobileMenu");
+  // console.log(value ? "openMobileMenu" : "closeMobileMenu");
   btnOpen.setAttribute("aria-expanded", value);
   menuTopNav.classList.add("animating");
   if (value == true) {
@@ -41,22 +41,22 @@ function mobileMenu(value) {
 
 // btnOpen.addEventListener("click", openMobileMenu);
 // function openMobileMenu() {
-//   console.log("openMobileMenu");
+// console.log("openMobileMenu");
 // }
 
 // function closeMobileMenu() {
-//   console.log("closeMobileMenu");
+// console.log("closeMobileMenu");
 // }
 
 // console.log(breakpoint);
 
 function setupTopNav() {
   if (breakpoint.matches) {
-    console.log("is mobile")
+    // console.log("is mobile")
     menuTopNav.setAttribute("inert", "");
   }
   else {
-    console.log("is tablet/desktop")
+    // console.log("is tablet/desktop")
     mobileMenu(false);
     menuTopNav.removeAttribute("inert");
   }
